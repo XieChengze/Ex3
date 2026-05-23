@@ -1,0 +1,353 @@
+/* 导入吉卜力风格手写字体 */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* 全局盒模型重置 */
+* {
+    box-sizing: border-box;
+}
+
+/* 页面整体背景样式 */
+body {
+    background-image: url('assets/bg-totoro.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+/* 页面标题样式 */
+.page-title {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 3.5rem;
+    color: #90EE90;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* 手风琴容器样式 */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 手风琴项样式 */
+.accordion-item {
+    border: none;
+    margin-bottom: 1px;
+}
+
+/* ========== 手风琴标题背景 - 每个手风琴使用不同背景 ========== */
+/* 手风琴按钮通用样式 */
+.accordion-button {
+    background-size: cover;
+    background-position: center;
+    color: #90EE90;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.8rem;
+    padding: 1.5rem 1.5rem;
+    border: none;
+}
+
+/* 个人信息标题背景 */
+.personal-header {
+    background-image: url('assets/acc-bg1.png');
+}
+
+/* 公园选择标题背景 */
+.ghibli-header {
+    background-image: url('assets/acc-bg2.png');
+}
+
+/* 游客详情标题背景 */
+.visitors-header {
+    background-image: url('assets/acc-bg3.png');
+}
+
+/* 住宿选择标题背景 */
+.accommodation-header {
+    background-image: url('assets/acc-bg4.png');
+}
+
+/* 支付详情标题背景 */
+.payment-header {
+    background-image: url('assets/acc-bg5.png');
+}
+
+/* 手风琴展开状态背景 - 保持与关闭状态一致 */
+.accordion-button:not(.collapsed) {
+    background-size: cover;
+    background-position: center;
+    color: #90EE90;
+    box-shadow: none;
+}
+
+.personal-header:not(.collapsed) {
+    background-image: url('assets/acc-bg1.png');
+}
+
+.ghibli-header:not(.collapsed) {
+    background-image: url('assets/acc-bg2.png');
+}
+
+.visitors-header:not(.collapsed) {
+    background-image: url('assets/acc-bg3.png');
+}
+
+.accommodation-header:not(.collapsed) {
+    background-image: url('assets/acc-bg4.png');
+}
+
+.payment-header:not(.collapsed) {
+    background-image: url('assets/acc-bg5.png');
+}
+
+/* 手风琴按钮焦点状态样式 */
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+/* 手风琴箭头样式 - 反转颜色 */
+.accordion-button::after {
+    filter: invert(1);
+}
+
+/* 手风琴内容区域样式 */
+.accordion-body {
+    background-color: #FFF3E0;
+    color: #212529;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+/* 表单控件通用样式 */
+.form-control, .form-select {
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+    height: auto;
+}
+
+/* 表单控件焦点状态样式 */
+.form-control:focus, .form-select:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 表单标签样式 */
+.form-label {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #212529;
+    font-weight: normal;
+}
+
+/* 单选框标签样式 */
+.form-check-label {
+    color: #212529;
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+}
+
+/* 单选框输入框样式 */
+.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-top: 0.25em;
+}
+
+/* 单选框选中状态样式 */
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+/* 错误提示文字样式 */
+.error-text {
+    color: #dc3545;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* 区域错误提示样式 */
+.section-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* 景点选择提示文字样式 */
+.selection-hint {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* ========== 景点卡片网格布局 ========== */
+.places-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* 统一的水平和垂直间距 */
+}
+
+/* 卡片包装器 - 控制列宽 */
+.place-card-wrapper {
+    width: calc(33.333% - 1rem); /* 3列布局，减去间距 */
+}
+
+/* 景点卡片样式 */
+.place-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100%; /* 让卡片占满容器高度 */
+    display: flex;
+    flex-direction: column; /* 内部元素垂直排列 */
+}
+
+/* 卡片悬停效果 */
+.place-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 卡片选中状态样式 */
+.place-card.selected {
+    border-color: #0d6efd;
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+}
+
+/* 卡片图片样式 */
+.place-card img {
+    width: 100%;
+    height: 180px; /* 固定图片高度 */
+    object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+    flex-shrink: 0; /* 防止图片被压缩 */
+}
+
+/* 卡片内容区域样式 */
+.place-card-body {
+    padding: 1rem;
+    color: #212529;
+    flex: 1; /* 让内容区域占据剩余所有空间 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 卡片标题样式 */
+.place-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+/* 卡片描述文字样式 */
+.place-card-description {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    flex: 1; /* 让描述文本区域占据剩余空间 */
+    margin-bottom: 0; /* 移除默认底部边距 */
+}
+
+/* 生成行程按钮样式 */
+.generate-btn {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: 'Patrick Hand', cursive;
+    padding: 0.8rem 2rem;
+    color: white;
+    display: block;
+    margin: 2rem auto 1rem;
+    transition: all 0.3s ease;
+}
+
+/* 按钮悬停效果 */
+.generate-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* 通用错误提示样式 */
+.general-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* 行程摘要区域样式 */
+.summary-section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 摘要标题样式 */
+.summary-title {
+    color: #2E8B57;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* 摘要项样式 */
+.summary-item {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* 摘要标签样式 */
+.summary-label {
+    font-weight: bold;
+    color: #2E8B57;
+}
+
+/* 加载中文字样式 */
+.loading-text {
+    color: #666;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* ========== 响应式设计 ========== */
+/* 平板设备：2列布局 */
+@media (max-width: 768px) {
+    .place-card-wrapper {
+        width: calc(50% - 0.75rem);
+    }
+}
+
+/* 手机设备：1列布局 */
+@media (max-width: 576px) {
+    .place-card-wrapper {
+        width: 100%;
+    }
+}
